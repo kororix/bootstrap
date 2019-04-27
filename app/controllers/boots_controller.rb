@@ -8,8 +8,12 @@ class BootsController < ApplicationController
   end
 
   def create
-    Boot.create(boot_params)
-    redirect_to new_boot_path
+    @boot = Boot.new(boot_params)
+    if @boot.save
+      redirect_to new_boots_path, notice: "ブログを作成しました！"
+    else
+      render 'new'
+    end
   end
 
   def show
