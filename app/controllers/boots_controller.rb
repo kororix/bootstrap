@@ -12,7 +12,7 @@ class BootsController < ApplicationController
   def create
     @boot = Boot.new(boot_params)
     if @boot.save
-      redirect_to new_boots_path, notice: "ブログを作成しました！"
+      redirect_to boots_path, notice: "ブログを作成しました！"
     else
       render 'new'
     end
@@ -32,10 +32,16 @@ class BootsController < ApplicationController
     end
   end
 
+  def destroy
+    @boot.destroy
+    redirect_to boots_path, notice:"ブログを削除しました！"
+  end
+
+
   private
 
   def boot_params
-  params.require(:boot).permit(:title, :content)
+    params.require(:boot).permit(:title, :content)
   end
 
   def set_boot

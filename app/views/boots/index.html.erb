@@ -11,6 +11,7 @@
     <td><%= boot.content %></td>
     <td><%= link_to '詳細を確認する', boot_path(boot.id) %></td>
     <td><%= link_to "ブログを編集する", edit_boot_path(boot.id) %></td>
+    <td><%= link_to 'ブログを削除する', boot_path(boot.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
 </table>
