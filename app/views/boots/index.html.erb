@@ -1,2 +1,16 @@
-<h1>Boots#index</h1>
-<p>Find me in app/views/boots/index.html.erb</p>
+<h1>ブログ一覧</h1>
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+
+<% @boots.each do |boot| %>
+  <tr>
+    <td><%= boot.title %></td>
+    <td><%= boot.content %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '新しくブログを投稿する', new_boot_path %>

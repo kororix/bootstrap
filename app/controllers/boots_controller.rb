@@ -1,5 +1,6 @@
 class BootsController < ApplicationController
   def index
+    @boot = Boot.all
   end
 
   def new
