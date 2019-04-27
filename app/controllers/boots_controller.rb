@@ -12,6 +12,10 @@ class BootsController < ApplicationController
     redirect_to new_boot_path
   end
 
+  def show
+    @boot = Boot.find(params[:id])
+  end
+
   private
 
   def boot_params
