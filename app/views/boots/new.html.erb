@@ -1,0 +1,11 @@
+<%= form_with(model: Boot.new, local: true) do |form| %>
+  <div class="boot_title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="boot_title">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
