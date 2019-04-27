@@ -1,6 +1,8 @@
 class BootsController < ApplicationController
+  before_action :set_boot, only: [:show, :edit, :update, :destroy]
+
   def index
-    @boot = Boot.all
+    @boots = Boot.all
   end
 
   def new
@@ -17,12 +19,26 @@ class BootsController < ApplicationController
   end
 
   def show
-    @boot = Boot.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @boot.update(boot_params)
+      redirect_to boots_path, notice: "ブログを編集しました！"
+    else
+      render 'edit'
+    end
   end
 
   private
 
   def boot_params
   params.require(:boot).permit(:title, :content)
+  end
+
+  def set_boot
+    @boot = Boot.find(params[:id])
   end
 end

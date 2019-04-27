@@ -10,6 +10,7 @@
     <td><%= boot.title %></td>
     <td><%= boot.content %></td>
     <td><%= link_to '詳細を確認する', boot_path(boot.id) %></td>
+    <td><%= link_to "ブログを編集する", edit_boot_path(boot.id) %></td>
   </tr>
 <% end %>
 </table>
