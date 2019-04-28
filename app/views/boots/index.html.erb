@@ -1,20 +1,23 @@
-<h1>ブログ一覧</h1>
-<p><%= notice %></p>
-<table>
-  <tr>
-    <th>タイトル</th>
-    <th>内容</th>
-  </tr>
-
-<% @boots.each do |boot| %>
-  <tr>
-    <td><%= boot.title %></td>
-    <td><%= boot.content %></td>
-    <td><%= link_to '詳細を確認する', boot_path(boot.id) %></td>
-    <td><%= link_to "ブログを編集する", edit_boot_path(boot.id) %></td>
-    <td><%= link_to 'ブログを削除する', boot_path(boot.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<%= link_to '新しくブログを投稿する', new_boot_path %>
+<header class="header">Bootstrap</header>
+<nav class="menu">
+    <ul>
+        <li>top</li>
+        <li>menu1</li>
+        <li>menu2</li>
+    </ul>
+</nav>
+<article>
+    <div class="contents">
+        <ul>
+            <li>contents1</li>
+            <li>contents2</li>
+        </ul>
+    </div>
+    <div class="topic">
+         <ul>
+            <li>bootstrapを使ってレスポンシブデザインを実現しよう！</li>
+            <li>やればできる！bootstrapを使ってみよう！</li>
+            <li>怖くない！レスポンシブデザインができるようになればWebアプリケーションもワンランク上に！</li>
+        </ul>
+    </div>
+</article>
