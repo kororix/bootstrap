@@ -6,7 +6,11 @@ class BootsController < ApplicationController
   end
 
   def new
-    @boot = Boot.new
+    if params[:back]
+      @boot = Boot.new(boot_params)
+    else
+      @boot = Boot.new
+    end
   end
 
   def create
@@ -37,6 +41,10 @@ class BootsController < ApplicationController
     redirect_to boots_path, notice:"ブログを削除しました！"
   end
 
+  def confirm
+    @boot = Boot.new(boot_params)
+    render :new if @boot.invalid?
+  end
 
   private
 
@@ -47,4 +55,5 @@ class BootsController < ApplicationController
   def set_boot
     @boot = Boot.find(params[:id])
   end
+
 end
